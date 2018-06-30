@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var redLabel: UILabel!
     @IBOutlet weak var greenLabel: UILabel!
@@ -29,8 +29,13 @@ class ViewController: UIViewController {
         )
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    redTextField.delegate = self
+    greenTextField.delegate = self
+    blueTextField.delegate = self
     redLabel.text = "Red"
     redLabel.textColor = UIColor.red
     redLabel.textAlignment = .center
@@ -62,6 +67,9 @@ class ViewController: UIViewController {
     red = redSlider.value
     green = greenSlider.value
     blue = blueSlider.value
+    redTextField.returnKeyType = .go
+    greenTextField.returnKeyType = .go
+    blueTextField.returnKeyType = .go
     myView.backgroundColor = myViewColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value))
     }
 
@@ -70,8 +78,28 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        redTextField.resignFirstResponder()
+        greenTextField.resignFirstResponder()
+        blueTextField.resignFirstResponder()
+        return true
+    }
+    
 
-
+    @IBAction func redTextFieldStart(_ sender: UITextField) {
+        redTextField.text = ""
+    }
+    
+    @IBAction func greenTextFieldStart(_ sender: UITextField) {
+        greenTextField.text = ""
+    }
+    @IBAction func blueTextFieldStart(_ sender: UITextField) {
+        blueTextField.text = ""
+    }
     
     @IBAction func redSliderAction(_ sender: Any) {
     red = redSlider.value
@@ -102,6 +130,7 @@ class ViewController: UIViewController {
             redSlider.value = red
             myView.backgroundColor = myViewColor(red: CGFloat(red / 255.0), green: CGFloat(green / 255.0), blue: CGFloat(blue / 255.0))
         }
+        
     }
     @IBAction func greenTxField(_ sender: Any) {
         guard greenTextField.text!.isEmpty == false else {return}

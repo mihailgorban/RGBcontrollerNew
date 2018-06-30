@@ -84,6 +84,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="redTextFieldStart:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="8Xz-y4-Tzi"/>
                                     <action selector="redTxFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="L6t-Bb-xaY"/>
                                 </connections>
                             </textField>
@@ -93,6 +94,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="greenTextFieldStart:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="MvG-wg-Rv2"/>
                                     <action selector="greenTxField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="YVV-rY-4qm"/>
                                 </connections>
                             </textField>
@@ -102,6 +104,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="blueTextFieldStart:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="mph-Ow-Gy5"/>
                                     <action selector="blueTxAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="dpV-TA-CmS"/>
                                 </connections>
                             </textField>
